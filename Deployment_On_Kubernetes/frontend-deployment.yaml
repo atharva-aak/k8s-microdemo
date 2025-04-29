@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pixelprompt-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pixelprompt
+  template:
+    metadata:
+      labels:
+        app: pixelprompt
+    spec:
+      containers:
+        - name: pixelprompt
+          image: pixelprompt:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 80
